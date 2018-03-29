@@ -125,7 +125,7 @@ RSpec.describe Refile::MiniMagick do
     it "downsamples high resolution images to low resolution" do
       file = Refile::MiniMagick.new(:resample).call(landscape, "30", "30")
       result = ::MiniMagick::Image.new(file.path)
-      expect(result.resolution).to eq [30, 30]
+      expect(result.resolution).to eq [30, 0, 30, 0]
     end
 
     it "yields the command object" do
